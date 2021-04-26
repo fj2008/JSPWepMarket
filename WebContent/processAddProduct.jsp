@@ -1,3 +1,5 @@
+<%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
+<%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@page import="exception.DuplicateProductException"%>
 <%@page import="DAO.ProductRepository"%>
 <%@page import="DTO.Product"%>
@@ -5,22 +7,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file = "/config.jsp" %>
 <%	
-	String productId=request.getParameter("productId");
-	String name = request.getParameter("name");
-	String unitPrice = request.getParameter("unitPrice");
-	String description = request.getParameter("description");
-	String manufacturer = request.getParameter("manufacturer");
-	String category = request.getParameter("category");
-	String unitsInStock =request.getParameter("unitsInStock");
-	String condition = request.getParameter("condition");
+	request.setCharacterEncoding("UTF-8");
+
+	String filename = "";
+	//프로젝트의 절대 경로
+	String realFolder  = "D:\\eclipse-workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\WebMarket\\images";
+	//업로드될 파일의 최대 크기 5MB
+	int maxSize = 10*1024*1024;
+	//인코딩유형
+	String encType = "UTF-8";
 	
+	MultipartRequest multi = new MultipartRequest(request,realFolder,maxSize,encType,new DefaultFileRenamePolicy());
+
+	String productId=multi.getParameter("productId");
+	String name = multi.getParameter("name");
+	String unitPrice = multi.getParameter("unitPrice");
+	String description = multi.getParameter("description");
+	String manufacturer = multi.getParameter("manufacturer");
+	String category = multi.getParameter("category");
+	String unitsInStock =multi.getParameter("unitsInStock");
+	String condition = multi.getParameter("condition");
+	
+	Enumeration files = multi.getFileNames();
+	
+	String fileName = (String) files.nextElement();
+	
+	fileName = multi.getFilesystemName(fileName);
 	
 	Product product = new Product(
 			productId, name, unitPrice, description, manufacturer, 
-			category, unitsInStock, condition
+			category, unitsInStock, condition, fileName
 			);	//상품 정보 저장
 	//productRepository객체의 생성을 제한 (싱글턴 패턴)
+	
 	ProductRepository pr = ProductRepository.getInstance();
+			
+			
 	try{
 		pr.addProduct(product);
 		
