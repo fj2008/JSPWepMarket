@@ -1,0 +1,14 @@
+title =Product Addition
+productId=Product ID
+name =Name
+unitPrice =Unit Price
+description = Description
+manufacturer= Manufacturer
+category=Category
+unitsInStock= Units in Stock
+condition=Condition
+ProductImage=Image
+condition = condition
+condition_Old = condition_Old
+condition_Refurbished = condition_Refurbished 
+button=button
