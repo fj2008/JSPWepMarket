@@ -14,4 +14,22 @@
   	<error-code>404</error-code>
   	<location>/exceptionNoPage.jsp</location>
   </error-page>
+  
+  <filter>
+  	<filter-name>logFilter</filter-name>
+  	<filter-class>filter.LogFilter</filter-class><!-- 필터가 어디에 정의되어있는지 -->
+  	<init-param>
+  		<param-name>filename</param-name>
+  		<param-value>C:\\log\\WebMarket.log</param-value>
+  	
+  	</init-param>
+  
+  </filter>
+  
+  
+  
+  <filter-mapping>
+  	<filter-name>logFilter</filter-name>
+  	<url-pattern>/*</url-pattern><!-- 모든 경우에 이 필터를 적용함 -->
+  </filter-mapping>
 </web-app>
