@@ -94,9 +94,9 @@
 	<script>
 		function removeCart(productId){
 			$.ajax({
-				url : "http://192.168.2.28:8081/WebMarket/cart/delete".
-				data: "productId ="+productId,
-				cuccess: function(){
+				url : "http://192.168.2.28:8081/WebMarket/cart/delete",
+				data: "productId="+productId,
+				success: function(){
 					alert("상품을 삭제 했습니다.");
 					
 					location.reload();//location.reload페이지 세로고침 기능
