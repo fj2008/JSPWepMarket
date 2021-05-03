@@ -22,7 +22,7 @@
 		<h2 class="alert alert-danger">요청하신 페이지를 찾을 수 없습니다.</h2>
 	</div>
 	<div class="container">
-		<p><a href=" PRODUCTS_PAGE_URL" class="btn btn-secondart">상품 목록&requo;</a></p>
+		<p><a href=" PRODUCTS_PAGE_URL" class="btn btn-secondart">상품 목록&raquo;</a></p>
 	</div>	
 	<jsp:include page="footer.jsp" />
 </body>
