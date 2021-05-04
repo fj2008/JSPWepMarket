@@ -29,7 +29,7 @@
 			<table width="100%">
 				<tr>
 					<td align="left">
-						<a href="/WebMarket/cart/delete" class="btn btn-danger">삭제하기</a>
+						<a href="/WebMarket/cart/delete/all" class="btn btn-danger">삭제하기</a>
 					</td>
 					<td align="right">
 						<a href="/WebMarket/cart/order" class="btn btn-success">주문하기</a>
@@ -94,8 +94,8 @@
 	<script>
 		function removeCart(productId){
 			$.ajax({
-				url : "http://192.168.2.28:8081/WebMarket/cart/delete",
-				data: "productId="+productId,
+				url: "http://192.168.2.28:8081/WebMarket/cart/delete",
+				date: "productId="+productId,
 				success: function(){
 					alert("상품을 삭제 했습니다.");
 					
@@ -106,8 +106,10 @@
 				}
 				
 			})
-			
+			//자바 스크립트의 cos정책 - 다른 도메인의 프로그램은 실행시킬 수 없다.
+		//Run on Server로 웹페이지를 열면 localhost도메인으로 접근하기 때문에 자바스크립의 ajax에 우리가 url로 써놓은 아이피의 프래그램을 실행 시킬 수 없음
 		}
+		
 	</script>
 </body>
 </html>
