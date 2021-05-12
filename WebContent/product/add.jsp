@@ -33,7 +33,7 @@ if(language == null || language.length() == 0){
 	<script type = "text/javascript" src="/WebMarket/js/validaytion.js"></script>
 </head>
 <body>
-	<jsp:include page="header.jsp" />
+	<jsp:include page="../header.jsp" />
 
 	<div class="jumbotron">
 		<div class="container">
@@ -46,7 +46,7 @@ if(language == null || language.length() == 0){
 			<a href="?language=ko">Korean</a> | <a href="?language=en">English</a>
 		</div>
 	
-		<form action="<%= PRODUCT_ADD_PROCESS_PAGE_URL %>" name = "newProduct"class="form-horizontal" method="POST" enctype="multipart/form-data">
+		<form action="<%= PRODUCT_ADD_PROCESS_URL %>" name = "newProduct"class="form-horizontal" method="POST" enctype="multipart/form-data">
 			<div class="form-group row">
 				<label class="col-sm-2"><fmt:message key="productId"/></label>
 				<div class="col-sm-3">
@@ -96,7 +96,7 @@ if(language == null || language.length() == 0){
 				</div>
 			</div>
 			
-			<div class="form-group row">W
+			<div class="form-group row">
 				<label class="col-sm-2"><fmt:message key="condition"/></label>
 				<div class="col-sm-5">
 					<label><input type="radio" name="condition" value="new">새제품</label>
@@ -123,7 +123,7 @@ if(language == null || language.length() == 0){
 	</div>
 	
 	<hr>
-	<jsp:include page="footer.jsp" />
+	<jsp:include page="../footer.jsp" />
 	
 
 

@@ -1,11 +1,11 @@
-<%@page import="DAO.ProductRepository"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="DTO.Product"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-	
-	ProductRepository pr = ProductRepository.getInstance();
-	List<Product> listOfProducts = pr.getAllProducts();
+	List<Product> listOfProducts = (ArrayList<Product>)request.getAttribute("productList");
+
+
 %>
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<%@ include file="header.jsp" %>
+	<%@ include file="../header.jsp" %>
 	
 	<div class="jumbotron">
 		<div class="container">
@@ -39,11 +39,11 @@
 					Product product = listOfProducts.get(i);
 			%>
 				<div class="col-md-4">
-					<img src="./images/<%=product.getImagePath() %>">
+					<img src="../images/<%=product.getImagePath() %>">
 					<h3><%=product.getName() %></h3>
 					<p><%=product.getDescription() %></p>
 					<p><%=product.getUnitPrice() %></p>
-					<p><a href="<%= PRODUCT_PAGE_URL %>&productId=<%=product.getProductId()%>" class="btn btn-secondary" role="button">상세 정보&raquo;</a></p>
+					<p><a href="<%= PRODUCT_PAGE_URL %>&p_id=<%=product.getProductId()%>" class="btn btn-secondary" role="button">상세 정보&raquo;</a></p>
 				</div>
 			<%
 				}
@@ -53,7 +53,7 @@
 		<hr>
 	</div>
 	
-	<%@ include file="footer.jsp" %>
+	<%@ include file="../footer.jsp" %>
 </body>
 </html>
 <!-- 

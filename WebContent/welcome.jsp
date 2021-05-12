@@ -1,4 +1,4 @@
-<%@page import="java.time.LocalDateTime"%>
+WW<%@page import="java.time.LocalDateTime"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%!
 	String greeting = "웹 쇼핑몰에 오신것을 환영합니다";
